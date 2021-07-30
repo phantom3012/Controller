@@ -1,16 +1,24 @@
-# controller
+# Controller
 
-A new Flutter project.
+An attempt to emulate a gameboy controller
 
-## Getting Started
+## The Idea
 
-This project is a starting point for a Flutter application.
+The sole purpose of this project was to try remotely controlling the WASD keypad and the left/right clicks of a laptop through an app on an android device.
 
-A few resources to get you started if this is your first Flutter project:
+## The Details
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+To achieve this connection, I have used Firebase RTDB to update the values in binary fashion as shown below:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![](https://i.imgur.com/JLy73Oj.gif) 
+![](https://i.imgur.com/EbIflue.gif)
+
+(The delay shown in the above GIFs is not noticable when the app is running)
+
+The python script then grabs these values from the database and then performs the corresponding key press/mouse click according to the value retrieved. (1 for press the key and 0 for release) 
+
+This automation is achieved through the [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/index.html) library. 
+
+To test this project, I pulled up a word document and it types the corresponding keys/presses the corresponding mouse keys to command
+
+General note: The app as of now is not responsive and there is some delay between pressing the button on the app and watching it reflect on the word document
