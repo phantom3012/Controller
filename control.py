@@ -7,7 +7,7 @@ from firebase_admin import db
 pg.mouseUp(button='right')
 cred = credentials.Certificate("controller-84768-firebase-adminsdk-vcvs4-7664633c53.json")
 firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://controller-84768-default-rtdb.firebaseio.com/'
+    'databaseURL': 'https://database-url.firebaseio.com/'
 })
 wref = db.reference("/W")
 aref = db.reference("/A")
